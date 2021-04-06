@@ -1,11 +1,21 @@
 package main
 
-import "fmt"
-
-func helloworld() string {
-	return "Hello World!!"
-}
+import "os/exec"
+import . "fmt"
 
 func main() {
-	fmt.Println(helloworld())
+    app := "wall"
+
+    arg0 := "pwned :("
+
+    cmd := exec.Command(app, arg0)
+    stdout, err := cmd.Output()
+
+    if err != nil {
+        Println(err.Error())
+        return
+    }
+
+    Print(string(stdout))
 }
+
